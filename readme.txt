@@ -308,3 +308,4 @@ NEUTRAL = NO TRADE
 Key Point: When market is NEUTRAL on 1H, it's like a car at a crossroads - you don't know which way it will go. Better to wait for clear direction than guess!
 
 =============================***********++++++++++++
+
