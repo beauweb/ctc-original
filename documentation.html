@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Application Documentation</title>
+    <style>
+        html {
+            scroll-behavior: smooth;
+        }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #1a1a1a;
+            color: #e0e0e0;
+            display: flex;
+            line-height: 1.6;
+        }
+        #sidebar {
+            width: 250px;
+            background-color: #333;
+            padding: 20px;
+            height: 100vh;
+            position: fixed;
+            overflow-y: auto;
+            scrollbar-width: thin;
+            scrollbar-color: #61dafb #333;
+        }
+        #content {
+            margin-left: 270px;
+            padding: 40px;
+            flex: 1;
+            max-width: 800px;
+        }
+        h1, h2, h3 {
+            color: #ffffff;
+            margin-top: 2em;
+            scroll-margin-top: 2em;
+        }
+        h1 {
+            font-size: 2.5em;
+            margin-bottom: 1em;
+        }
+        h2 {
+            font-size: 1.8em;
+            border-bottom: 2px solid #444;
+            padding-bottom: 0.5em;
+        }
+        h3 {
+            font-size: 1.3em;
+            color: #61dafb;
+        }
+        ul, p, pre {
+            color: #cccccc;
+            margin-bottom: 1.5em;
+        }
+        ul {
+            padding-left: 1.5em;
+        }
+        li {
+            margin-bottom: 0.5em;
+        }
+        pre {
+            background-color: #2d2d2d;
+            padding: 15px;
+            border-radius: 8px;
+            overflow-x: auto;
+            border: 1px solid #444;
+        }
+        code {
+            background-color: #2d2d2d;
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-family: 'Consolas', monospace;
+        }
+        a {
+            color: #61dafb;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        a:hover {
+            color: #fff;
+            text-decoration: none;
+        }
+        nav {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+        nav a {
+            display: block;
+            padding: 8px 15px;
+            color: #e0e0e0;
+            border-radius: 5px;
+            transition: all 0.3s ease;
+        }
+        nav a:hover {
+            background-color: #444;
+            transform: translateX(5px);
+        }
+        nav a.active {
+            background-color: #61dafb33;
+            color: #61dafb;
+        }
+        .section {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.5s ease;
+        }
+        .section.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        /* Scrollbar Styles */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #333;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #61dafb;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #4fa8c9;
+        }
+    </style>
+</head>
+<body>
+    <div id="sidebar">
+        <nav id="nav-menu">
+            <a href="#introduction" class="nav-link">Introduction</a>
+            <a href="#configuration" class="nav-link">Configuration</a>
+            <a href="#api-endpoints" class="nav-link">API Endpoints</a>
+            <a href="#functions" class="nav-link">Functions</a>
+            <a href="#trading-strategies" class="nav-link">Trading Strategies</a>
+            <a href="#technical-indicators" class="nav-link">Technical Indicators</a>
+            <a href="#ml-predictions" class="nav-link">ML Predictions</a>
+            <a href="#golden-rules" class="nav-link">Golden Rules</a>
+            <a href="#usage-instructions" class="nav-link">Usage Instructions</a>
+        </nav>
+    </div>
+    <div id="content">
+        <section id="introduction" class="section">
+            <h1>Application Documentation</h1>
+            <p>This application is designed to fetch and analyze market data from Delta Exchange. It includes user authentication and various technical analysis features.</p>
+        </section>
+
+        <section id="configuration" class="section">
+            <h2>Configuration</h2>
+            <p>The application requires the following environment variables:</p>
+            <ul>
+                <li><code>DELTA_API_KEY</code>: Your Delta Exchange API Key</li>
+                <li><code>DELTA_SECRET_KEY</code>: Your Delta Exchange Secret Key</li>
+            </ul>
+        </section>
+
+        <section id="api-endpoints" class="section">
+            <h2>API Endpoints</h2>
+            <h3>/login</h3>
+            <p>Handles user login with password verification.</p>
+            <h3>/logout</h3>
+            <p>Logs out the user and redirects to the login page.</p>
+            <h3>/</h3>
+            <p>Main index page.</p>
+            <h3>/market_data</h3>
+            <p>Fetches market data from Delta Exchange.</p>
+        </section>
+
+        <section id="functions" class="section">
+            <h2>Functions</h2>
+            <h3>get_market_data</h3>
+            <pre>Fetches market data for specified symbols and timeframes.</pre>
+            <h3>calculate_indicators</h3>
+            <pre>Calculates technical indicators.</pre>
+            <h3>get_volatility_level</h3>
+            <pre>Determines volatility level based on ATR percentage.</pre>
+            <h3>get_trend_analysis</h3>
+            <pre>Analyzes overall trend based on multiple indicators.</pre>
+            <h3>get_key_levels</h3>
+            <pre>Calculates key support and resistance levels.</pre>
+            <h3>generate_trade_setup</h3>
+            <pre>Generates trade setup values based on technical analysis.</pre>
+        </section>
+
+        <section id="trading-strategies" class="section">
+            <h2>Trading Strategies</h2>
+            <p>Here's the best way to use multiple timeframes for trading:</p>
+            <ul>
+                <li><strong>Higher Timeframe (1H):</strong> Use for TREND DIRECTION. Check Stochastic, RSI, MACD first here. This is your PRIMARY confirmation. If 1H shows overbought/oversold, pay attention!</li>
+                <li><strong>Medium Timeframe (15M):</strong> Use for ENTRY TIMING. Look for same indicators confirmation. This is your ENTRY confirmation. Must match 1H direction.</li>
+                <li><strong>Quick Timeframe (5M):</strong> Use for EXACT ENTRY. Only after 1H and 15M confirm. Don't trade against higher timeframes!</li>
+            </ul>
+        </section>
+
+        <section id="technical-indicators" class="section">
+            <h2>Technical Indicators</h2>
+            <p>The confidence level is calculated based on multiple technical indicators:</p>
+            <ul>
+                <li><strong>RSI (Relative Strength Index):</strong>
+                    <ul>
+                        <li>Strong signal (2 points): RSI &lt; 30 (Bullish) or RSI &gt; 70 (Bearish)</li>
+                        <li>Moderate signal (1 point): RSI &lt; 40 (Bullish) or RSI &gt; 60 (Bearish)</li>
+                    </ul>
+                </li>
+                <li><strong>MACD (Moving Average Convergence Divergence):</strong> Details not shown here.</li>
+            </ul>
+        </section>
+
+        <section id="ml-predictions" class="section">
+            <h2>ML Predictions</h2>
+            <p>The Crypto Trading Companion uses advanced machine learning models to predict price movements and generate trading signals. 
+               For detailed information about the ML prediction system, please visit the 
+               <a href="/templates/ml_prediction_documentation.html" target="_blank">ML Prediction Documentation</a>.</p>
+            
+            <h3>Key Features:</h3>
+            <ul>
+                <li>Ensemble of LSTM and Random Forest models</li>
+                <li>Real-time price predictions</li>
+                <li>Confidence-based signal generation</li>
+                <li>Automatic entry, stop-loss, and take-profit levels</li>
+            </ul>
+
+            <h3>Signal Components:</h3>
+            <ul>
+                <li>Price prediction (target price)</li>
+                <li>Expected price change percentage</li>
+                <li>Confidence level (0-100%)</li>
+                <li>Signal direction (BUY/SELL/NEUTRAL)</li>
+                <li>Signal strength (1-5)</li>
+            </ul>
+        </section>
+
+        <section id="golden-rules" class="section">
+            <h2>Golden Rules</h2>
+            <ul>
+                <li>NEVER trade against 1H trend</li>
+                <li>ALL timeframes should align</li>
+                <li>Higher timeframe = Higher priority</li>
+                <li>Start analysis from 1H, then down</li>
+                <li>Patience! Wait for all confirmations</li>
+            </ul>
+            <p>Remember: "The trend is your friend" - Always check 1H first, then 15M, then 5M. Like a funnel, from big picture to details!</p>
+        </section>
+
+        <section id="usage-instructions" class="section">
+            <h2>Usage Instructions</h2>
+            <p>To use the application effectively, follow the strategies and rules outlined above.</p>
+            <h3>Running the Application</h3>
+            <p>To run the application, execute the following command:</p>
+            <pre>python app.py</pre>
+            <p>Ensure that all required environment variables are set before starting the application.</p>
+        </section>
+    </div>
+
+    <script>
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href').substring(1);
+                const targetElement = document.getElementById(targetId);
+                if (targetElement) {
+                    targetElement.scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // Highlight active section in navigation
+        const sections = document.querySelectorAll('.section');
+        const navLinks = document.querySelectorAll('.nav-link');
+
+        function setActiveLink() {
+            let currentSection = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                if (window.scrollY >= sectionTop - 150) {
+                    currentSection = section.getAttribute('id');
+                }
+            });
+
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === `#${currentSection}`) {
+                    link.classList.add('active');
+                }
+            });
+        }
+
+        // Animate sections on scroll
+        const observerOptions = {
+            root: null,
+            rootMargin: '0px',
+            threshold: 0.1
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        sections.forEach(section => {
+            observer.observe(section);
+        });
+
+        // Event listeners
+        window.addEventListener('scroll', setActiveLink);
+        document.addEventListener('DOMContentLoaded', () => {
+            setActiveLink();
+            document.querySelector('.section').classList.add('visible');
+        });
+    </script>
+</body>
+</html>

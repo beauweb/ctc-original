@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CTC Documentation - ML Predictions</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #1a1a1a;
+            color: #ffffff;
+        }
+        .container {
+            background-color: #2d2d2d;
+            padding: 30px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+        }
+        h1, h2, h3 {
+            color: #4CAF50;
+        }
+        .section {
+            margin-bottom: 30px;
+        }
+        code {
+            background-color: #333;
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-family: monospace;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        th, td {
+            padding: 12px;
+            text-align: left;
+            border-bottom: 1px solid #444;
+        }
+        th {
+            background-color: #333;
+        }
+        .note {
+            background-color: #2c3e50;
+            padding: 15px;
+            border-radius: 4px;
+            margin: 20px 0;
+        }
+        .warning {
+            background-color: #c0392b;
+            padding: 15px;
+            border-radius: 4px;
+            margin: 20px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>ML Predictions Documentation</h1>
+        
+        <div class="section">
+            <h2>Overview</h2>
+            <p>The CTC (Crypto Trading Companion) uses an advanced machine learning system that combines two models for cryptocurrency price predictions:</p>
+            <ul>
+                <li>LSTM (Long Short-Term Memory) Neural Network</li>
+                <li>Random Forest Regressor</li>
+            </ul>
+        </div>
+
+        <div class="section">
+            <h2>Features Used</h2>
+            <p>The ML models use the following features for prediction:</p>
+            <ul>
+                <li>Price data (OHLCV)</li>
+                <li>Technical Indicators:
+                    <ul>
+                        <li>RSI (Relative Strength Index)</li>
+                        <li>MACD (Moving Average Convergence Divergence)</li>
+                        <li>Bollinger Bands</li>
+                        <li>Price Returns</li>
+                        <li>Volatility</li>
+                        <li>Volume Moving Average</li>
+                        <li>Price Moving Average</li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+
+        <div class="section">
+            <h2>Signal Generation</h2>
+            <table>
+                <tr>
+                    <th>Component</th>
+                    <th>Description</th>
+                </tr>
+                <tr>
+                    <td>Price Prediction</td>
+                    <td>Ensemble average of LSTM and Random Forest predictions</td>
+                </tr>
+                <tr>
+                    <td>Price Change</td>
+                    <td>Percentage difference between current and predicted price</td>
+                </tr>
+                <tr>
+                    <td>Confidence</td>
+                    <td>Based on prediction agreement between models (0-100%)</td>
+                </tr>
+                <tr>
+                    <td>Signal Direction</td>
+                    <td>
+                        - BUY: Predicted price > Current price<br>
+                        - SELL: Predicted price < Current price<br>
+                        - NEUTRAL: Change < 0.1%
+                    </td>
+                </tr>
+                <tr>
+                    <td>Signal Strength (1-5)</td>
+                    <td>Calculated from price change % and confidence</td>
+                </tr>
+            </table>
+        </div>
+
+        <div class="section">
+            <h2>Trading Levels</h2>
+            <p>The system automatically calculates:</p>
+            <ul>
+                <li><strong>Entry Price:</strong> The ML-predicted price level</li>
+                <li><strong>Stop Loss:</strong> 1% against the trade direction</li>
+                <li><strong>Take Profit:</strong> 2% in the trade direction</li>
+            </ul>
+        </div>
+
+        <div class="section">
+            <h2>Interpreting Results</h2>
+            <h3>Example Bullish Signal:</h3>
+            <pre>
+Predicted Price: 50,500 USDT
+Current Price: 50,000 USDT
+Change: +1.00%
+Confidence: 95%
+Signal: BUY (Strength 4/5)
+Entry: 50,500
+Stop Loss: 49,500 (-1%)
+Take Profit: 51,000 (+2%)
+            </pre>
+
+            <h3>Example Bearish Signal:</h3>
+            <pre>
+Predicted Price: 49,500 USDT
+Current Price: 50,000 USDT
+Change: -1.00%
+Confidence: 95%
+Signal: SELL (Strength 4/5)
+Entry: 49,500
+Stop Loss: 50,500 (+1%)
+Take Profit: 49,000 (-2%)
+            </pre>
+        </div>
+
+        <div class="section">
+            <h2>Best Practices</h2>
+            <div class="note">
+                <h3>When to Trade:</h3>
+                <ul>
+                    <li>Signal Strength ≥ 3/5</li>
+                    <li>Confidence > 80%</li>
+                    <li>Price change > 0.5%</li>
+                    <li>Market volatility is Low or Medium</li>
+                    <li>ML signal agrees with trend analysis</li>
+                </ul>
+            </div>
+
+            <div class="warning">
+                <h3>Risk Management:</h3>
+                <ul>
+                    <li>Always use the suggested stop loss</li>
+                    <li>Consider reducing position size when:
+                        <ul>
+                            <li>ML signal contradicts trend analysis</li>
+                            <li>Market volatility is High</li>
+                            <li>Confidence < 80%</li>
+                        </ul>
+                    </li>
+                    <li>Never risk more than 1-2% of your portfolio per trade</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

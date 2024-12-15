@@ -1,0 +1,30 @@
+2024-12-15 23:16:01,733 - INFO: Fetching data for symbol: BTC/USDT
+2024-12-15 23:16:05,193 - INFO: Successfully fetched data for BTC/USDT
+2024-12-15 23:16:05,203 - INFO: 
+Generating trade setup for BTC/USDT
+2024-12-15 23:16:05,204 - INFO: Current price: 103228.0
+2024-12-15 23:16:05,487 - INFO: LSTM prediction: 101395.65992987156
+2024-12-15 23:16:05,487 - INFO: RF prediction: 103857.97250574679
+2024-12-15 23:16:05,487 - INFO: Raw confidence: 0.9760071230247526
+2024-12-15 23:16:05,487 - INFO: Ensemble prediction: 102626.81621780917
+2024-12-15 23:16:05,487 - INFO: ML Signal: {'predicted_price': 102626.81621780917, 'price_change_pct': -0.58238441332858, 'confidence': 0.9760071230247526, 'signal': 'SELL', 'strength': 5}
+2024-12-15 23:16:08,709 - INFO: Fetching data for symbol: ETH/USDT
+2024-12-15 23:16:09,429 - INFO: Successfully fetched data for ETH/USDT
+2024-12-15 23:16:09,437 - INFO: 
+Generating trade setup for ETH/USDT
+2024-12-15 23:16:09,437 - INFO: Current price: 3915.2
+2024-12-15 23:16:09,752 - INFO: LSTM prediction: 3880.495288342238
+2024-12-15 23:16:09,752 - INFO: RF prediction: 3924.7216061528807
+2024-12-15 23:16:09,752 - INFO: Raw confidence: 0.988667498057143
+2024-12-15 23:16:09,752 - INFO: Ensemble prediction: 3902.6084472475595
+2024-12-15 23:16:09,754 - INFO: ML Signal: {'predicted_price': 3902.6084472475595, 'price_change_pct': -0.3216068847680909, 'confidence': 0.988667498057143, 'signal': 'SELL', 'strength': 3}
+2024-12-15 23:16:12,571 - INFO: Fetching data for symbol: ETH/USDT
+2024-12-15 23:16:13,284 - INFO: Successfully fetched data for ETH/USDT
+2024-12-15 23:16:13,297 - INFO: 
+Generating trade setup for ETH/USDT
+2024-12-15 23:16:13,299 - INFO: Current price: 3915.2
+2024-12-15 23:16:13,386 - INFO: LSTM prediction: 3873.744665399194
+2024-12-15 23:16:13,393 - INFO: RF prediction: 3915.401703480179
+2024-12-15 23:16:13,393 - INFO: Raw confidence: 0.9893038245506798
+2024-12-15 23:16:13,393 - INFO: Ensemble prediction: 3894.573184439687
+2024-12-15 23:16:13,393 - INFO: ML Signal: {'predicted_price': 3894.573184439687, 'price_change_pct': -0.5268393839475106, 'confidence': 0.9893038245506798, 'signal': 'SELL', 'strength': 5}

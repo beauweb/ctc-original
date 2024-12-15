@@ -1,0 +1,620 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trading Playground</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #121212;
+            color: #e0e0e0;
+            padding-top: 60px;
+            font-family: 'Roboto', sans-serif;
+        }
+
+        /* Header Styles */
+        .header-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background-color: #1f1f1f;
+            padding: 10px;
+            z-index: 1000;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+            transition: background-color 0.3s ease;
+        }
+
+        .header-container:hover {
+            background-color: #2a2a2a;
+        }
+
+        .logo {
+            font-size: 20px;
+            font-weight: bold;
+            color: #ffffff;
+            margin-right: auto;
+            transition: color 0.3s ease;
+        }
+
+        .header-flex {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+
+        .logout-btn {
+            padding: 5px 15px;
+            font-size: 14px;
+            color: #ffffff;
+            border: 1px solid #ffffff;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        .logout-btn:hover {
+            background-color: #000000;
+            color: #fff;
+        }
+
+        /* Main Content Styles */
+        .tagline {
+            font-style: italic;
+            color: #888;
+            font-size: 14px;
+            margin-bottom: 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 15px;
+        }
+
+        .card {
+            background-color: #1f1f1f;
+            border: 1px solid #333;
+            margin-bottom: 20px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+        }
+
+        .card-header {
+            background-color: #333;
+            border-bottom: 1px solid #444;
+            color: #fff;
+            padding: 12px;
+        }
+
+        .form-select {
+            background-color: #333;
+            border: 1px solid #444;
+            color: #fff;
+            font-size: 14px;
+            margin-bottom: 10px;
+            transition: background-color 0.3s ease, border-color 0.3s ease;
+        }
+
+        .form-select:focus {
+            background-color: #404040;
+            border-color: #666;
+            color: #fff;
+        }
+
+        .refresh-btn {
+            background-color: #007bff;
+            color: white;
+            border: none;
+            padding: 8px 20px;
+            border-radius: 4px;
+            font-size: 14px;
+            transition: background-color 0.3s ease;
+        }
+
+        .refresh-btn:hover {
+            background-color: #0056b3;
+        }
+
+        .price-value {
+            font-size: 28px;
+            font-weight: bold;
+            margin: 15px 0;
+            text-align: center;
+        }
+
+        .trade-signal {
+            padding: 12px;
+            margin: 10px 0;
+            border-radius: 4px;
+            text-align: center;
+            font-size: 16px;
+            transition: background-color 0.3s ease;
+        }
+
+        .buy-signal {
+            background-color: #28a745;
+            color: white;
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+
+        .sell-signal {
+            background-color: #dc3545;
+            color: white;
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+
+        .signal-strength {
+            font-size: 14px;
+            margin-top: 5px;
+            opacity: 0.9;
+        }
+
+        .confidence-meter {
+            display: inline-block;
+            margin-top: 5px;
+        }
+
+        .confidence-dot {
+            display: inline-block;
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            margin: 0 2px;
+            background-color: rgba(255, 255, 255, 0.3);
+            transition: background-color 0.3s ease;
+        }
+
+        .confidence-dot.active {
+            background-color: rgba(255, 255, 255, 0.9);
+        }
+
+        .trade-info {
+            background-color: #333;
+            padding: 15px;
+            border-radius: 4px;
+            margin-top: 10px;
+            font-size: 14px;
+        }
+
+        .trade-info div {
+            margin-bottom: 8px;
+        }
+
+        .market-analysis {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 15px;
+            margin-top: 15px;
+        }
+
+        .analysis-card {
+            background-color: #333;
+            padding: 15px;
+            border-radius: 4px;
+            text-align: left;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .analysis-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+        }
+
+        .analysis-title {
+            font-size: 16px;
+            font-weight: bold;
+            margin-bottom: 10px;
+            color: #fff;
+        }
+
+        .analysis-content {
+            font-size: 14px;
+            color: #ddd;
+        }
+
+        .volatility-low {
+            color: #4caf50;
+        }
+
+        .volatility-moderate {
+            color: #ffc107;
+        }
+
+        .volatility-high {
+            color: #ff9800;
+        }
+
+        .volatility-extreme {
+            color: #f44336;
+        }
+
+        .trend-up {
+            color: #4caf50;
+        }
+
+        .trend-down {
+            color: #f44336;
+        }
+
+        .trend-sideways {
+            color: #ffc107;
+        }
+
+        /* Shimmer Effect Styles */
+        .shimmer {
+            background: #1f1f1f;
+            background-image: linear-gradient(
+                to right,
+                #1f1f1f 0%,
+                #2a2a2a 20%,
+                #1f1f1f 40%,
+                #1f1f1f 100%
+            );
+            background-repeat: no-repeat;
+            background-size: 800px 100%;
+            animation: shimmer 2s infinite linear;
+            min-height: 20px;
+            border-radius: 4px;
+        }
+
+        @keyframes shimmer {
+            0% {
+                background-position: -468px 0;
+            }
+            100% {
+                background-position: 468px 0;
+            }
+        }
+
+        .shimmer-text {
+            height: 20px;
+            margin: 10px 0;
+        }
+
+        .shimmer-price {
+            height: 40px;
+            width: 150px;
+            margin: 20px auto;
+        }
+
+        .shimmer-signal {
+            height: 60px;
+            margin: 15px 0;
+        }
+
+        .shimmer-analysis {
+            height: 100px;
+            margin: 10px 0;
+        }
+
+        /* Mobile Responsive Styles */
+        @media (max-width: 768px) {
+            body {
+                padding-top: 50px;
+            }
+
+            .container {
+                padding: 10px;
+            }
+
+            .logo {
+                font-size: 18px;
+            }
+
+            h1 {
+                font-size: 24px;
+                margin-bottom: 10px;
+                margin-top: 20px;
+            }
+
+            .tagline {
+                font-size: 12px;
+                margin-bottom: 15px;
+            }
+
+            .card {
+                margin-bottom: 15px;
+            }
+
+            .card-header {
+                padding: 10px;
+            }
+
+            .price-value {
+                font-size: 24px;
+            }
+
+            .trade-signal {
+                padding: 10px;
+                font-size: 14px;
+            }
+
+            .trade-info {
+                padding: 12px;
+                font-size: 13px;
+            }
+        }
+
+        /* Touch-friendly improvements */
+        @media (hover: none) {
+
+            .form-select,
+            .refresh-btn {
+                min-height: 44px;
+            }
+
+            .logout-btn {
+                min-height: 40px;
+                min-width: 80px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="header-container">
+        <div class="header-flex">
+            <div class="logo">Beau Bhavik</div>
+            <a href="{{ url_for('logout') }}" class="btn logout-btn">Logout</a>
+        </div>
+    </div>
+
+    <div class="container text-center">
+        <h1>Trading Playground</h1>
+        <p class="tagline">Python based customized app by #beaubhavik</p>
+    </div>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4">
+                <div class="card">
+                    <div class="card-header">
+                        <h5 class="card-title mb-0">Trading Pair</h5>
+                    </div>
+                    <div class="card-body">
+                        <select id="symbol-select" class="form-select">
+                            <option value="BTC/USDT">BTC/USDT</option>
+                            <option value="ETH/USDT">ETH/USDT</option>
+                            <option value="SOL/USDT">SOL/USDT</option>
+                        </select>
+                        <select id="timeframe-select" class="form-select">
+                            <option value="1m">1 minute</option>
+                            <option value="5m">5 minutes</option>
+                            <option value="15m">15 minutes</option>
+                            <option value="1h">1 hour</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-8">
+                <div class="card">
+                    <div class="card-header d-flex justify-content-between align-items-center">
+                        <h5 class="card-title mb-0">Trade Setup</h5>
+                        <button class="refresh-btn" onclick="updateData()">Refresh</button>
+                    </div>
+                    <div class="card-body">
+                        <div id="price-display"></div>
+                        <div id="signal-display"></div>
+                        <div id="trade-setup"></div>
+                        <div id="market-analysis"></div>
+                        <div id="indicators"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        let isUpdating = false;
+
+        function showLoadingState() {
+            // Price display shimmer
+            $('#price-display').html(`
+                <div class="shimmer">
+                    <div class="loading-line"></div>
+                </div>
+            `);
+
+            // Signal display shimmer
+            $('#signal-display').html(`
+                <div class="shimmer">
+                    <div class="loading-line"></div>
+                    <div class="loading-line"></div>
+                </div>
+            `);
+
+            // Trade setup shimmer
+            $('#trade-setup').html(`
+                <div class="shimmer">
+                    <div class="loading-line"></div>
+                    <div class="loading-line"></div>
+                    <div class="loading-line"></div>
+                </div>
+            `);
+
+            // Market analysis shimmer
+            $('#market-analysis').html(`
+                <div class="shimmer">
+                    <div class="loading-line"></div>
+                    <div class="loading-line"></div>
+                    <div class="loading-line"></div>
+                </div>
+            `);
+        }
+
+        function updateData() {
+            if (isUpdating) return;
+            isUpdating = true;
+
+            const symbol = $('#symbol-select').val();
+            const timeframe = $('#timeframe-select').val();
+
+            // Show shimmer effect before fetching data
+            showLoadingState();
+
+            $.get(`/api/market-data?symbol=${symbol}&timeframe=${timeframe}`, function(data) {
+                if (data.error) {
+                    alert(data.error);
+                    return;
+                }
+
+                const setup = data.trade_setup;
+
+                // Update price display
+                $('#price-display').html(`
+                    <div class="price-value">
+                        ${setup.current_price.toFixed(2)} USDT
+                    </div>
+                `);
+
+                // Update signal display
+                if (setup.signal) {
+                    const signalClass = setup.signal === 'BUY' ? 'buy-signal' : 'sell-signal';
+                    const signalText = setup.signal === 'BUY' ? 'BULLISH' : 'BEARISH';
+                    const confidenceDots = Array(5).fill(0).map((_, i) =>
+                        `<span class="confidence-dot${i < setup.strength ? ' active' : ''}"></span>`
+                    ).join('');
+
+                    $('#signal-display').html(`
+                        <div class="trade-signal ${signalClass}">
+                            <strong>${signalText}</strong>
+                            <div class="signal-strength">
+                                Confidence Level: ${setup.strength}/5
+                                <div class="confidence-meter">
+                                    ${confidenceDots}
+                                </div>
+                            </div>
+                        </div>
+                    `);
+                } else {
+                    $('#signal-display').html(`
+                        <div class="trade-signal">
+                            <strong>NEUTRAL</strong>
+                            <div class="signal-strength">
+                                <div class="confidence-meter">
+                                    <span class="confidence-dot"></span>
+                                    <span class="confidence-dot"></span>
+                                    <span class="confidence-dot"></span>
+                                    <span class="confidence-dot"></span>
+                                    <span class="confidence-dot"></span>
+                                </div>
+                            </div>
+                        </div>
+                    `);
+                }
+
+                // Update trade setup
+                if (setup.suggested_entry) {
+                    $('#trade-setup').html(`
+                        <div class="trade-info">
+                            <div><strong>Entry:</strong> ${setup.suggested_entry.toFixed(2)}</div>
+                            <div><strong>Stop Loss:</strong> ${setup.stop_loss.toFixed(2)}</div>
+                            <div><strong>Take Profit:</strong> ${setup.take_profit.toFixed(2)}</div>
+                        </div>
+                    `);
+                }
+
+                // Update market analysis
+                const getVolatilityClass = (level) => {
+                    switch (level.toLowerCase()) {
+                        case 'low': return 'volatility-low';
+                        case 'moderate': return 'volatility-moderate';
+                        case 'high': return 'volatility-high';
+                        case 'extreme': return 'volatility-extreme';
+                        default: return '';
+                    }
+                };
+
+                const getTrendClass = (trend) => {
+                    if (trend.includes('Uptrend')) return 'trend-up';
+                    if (trend.includes('Downtrend')) return 'trend-down';
+                    return 'trend-sideways';
+                };
+
+                $('#market-analysis').html(`
+                    <div class="market-analysis">
+                        <div class="analysis-card">
+                            <div class="analysis-title">Market Volatility</div>
+                            <div class="analysis-content">
+                                <span class="${getVolatilityClass(setup.volatility)}">
+                                    ${setup.volatility}
+                                </span>
+                            </div>
+                        </div>
+                        
+                        <div class="analysis-card">
+                            <div class="analysis-title">Trend Analysis</div>
+                            <div class="analysis-content">
+                                <span class="${getTrendClass(setup.trend)}">
+                                    ${setup.trend}
+                                </span>
+                            </div>
+                        </div>
+                        
+                        <div class="analysis-card">
+                            <div class="analysis-title">Key Levels</div>
+                            <div class="analysis-content">
+                                <div>Resistance: ${setup.key_levels.resistance.toFixed(2)}</div>
+                                <div>Pivot: ${setup.key_levels.pivot.toFixed(2)}</div>
+                                <div>Support: ${setup.key_levels.support.toFixed(2)}</div>
+                            </div>
+                        </div>
+                        
+                        <div class="analysis-card">
+                            <div class="analysis-title">Technical Indicators</div>
+                            <div class="analysis-content">
+                                <div>RSI: ${setup.rsi.toFixed(2)}</div>
+                                <div>MACD: ${setup.macd.toFixed(2)}</div>
+                                <div>Stochastic K: ${setup.stoch_k.toFixed(2)}</div>
+                                <div>Stochastic D: ${setup.stoch_d.toFixed(2)}</div>
+                            </div>
+                        </div>
+                        
+                        <div class="analysis-card">
+                            <div class="analysis-title">ML Predictions</div>
+                            <div class="analysis-content">
+                                <div>Predicted Price: ${setup.ml_prediction.predicted_price.toFixed(2)}</div>
+                                <div>Change: <span class="${setup.ml_prediction.price_change_pct > 0 ? 'trend-up' : 'trend-down'}">${setup.ml_prediction.price_change_pct.toFixed(2)}%</span></div>
+                                <div>Confidence: ${setup.ml_prediction.confidence.toFixed(2)}%</div>
+                            </div>
+                        </div>
+                    </div>
+                `);
+
+                // Update indicators (removed duplicate technical indicators)
+                $('#indicators').html('');
+
+                isUpdating = false;
+            });
+        }
+
+        // Initial update
+        $(document).ready(function() {
+            updateData();
+        });
+
+        // Update on symbol or timeframe change
+        $('#symbol-select, #timeframe-select').change(function() {
+            updateData();
+        });
+
+        // Add shimmer effect when refresh button is clicked
+        $('.refresh-btn').click(function() {
+            updateData();
+        });
+    </script>
+</body>
+
+</html>
