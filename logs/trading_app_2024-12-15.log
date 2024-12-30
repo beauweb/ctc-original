@@ -28,3 +28,83 @@ Generating trade setup for ETH/USDT
 2024-12-15 23:16:13,393 - INFO: Raw confidence: 0.9893038245506798
 2024-12-15 23:16:13,393 - INFO: Ensemble prediction: 3894.573184439687
 2024-12-15 23:16:13,393 - INFO: ML Signal: {'predicted_price': 3894.573184439687, 'price_change_pct': -0.5268393839475106, 'confidence': 0.9893038245506798, 'signal': 'SELL', 'strength': 5}
+2024-12-15 23:17:46,651 - INFO: Fetching data for symbol: ETH/USDT
+2024-12-15 23:17:47,374 - INFO: Successfully fetched data for ETH/USDT
+2024-12-15 23:17:47,386 - INFO: 
+Generating trade setup for ETH/USDT
+2024-12-15 23:17:47,386 - INFO: Current price: 3916.65
+2024-12-15 23:17:47,469 - INFO: LSTM prediction: 3910.688096854091
+2024-12-15 23:17:47,469 - INFO: RF prediction: 3928.980195411308
+2024-12-15 23:17:47,469 - INFO: Raw confidence: 0.995333450887134
+2024-12-15 23:17:47,474 - INFO: Ensemble prediction: 3919.8341461326995
+2024-12-15 23:17:47,474 - INFO: ML Signal: {'predicted_price': 3919.8341461326995, 'price_change_pct': 0.0812976940165556, 'confidence': 0.995333450887134, 'signal': 'NEUTRAL', 'strength': 1}
+2024-12-15 23:17:49,307 - INFO: Fetching data for symbol: ETH/USDT
+2024-12-15 23:17:50,110 - INFO: Successfully fetched data for ETH/USDT
+2024-12-15 23:17:50,120 - INFO: 
+Generating trade setup for ETH/USDT
+2024-12-15 23:17:50,120 - INFO: Current price: 3916.65
+2024-12-15 23:17:50,204 - INFO: LSTM prediction: 3873.744665399194
+2024-12-15 23:17:50,204 - INFO: RF prediction: 3914.7113384280683
+2024-12-15 23:17:50,204 - INFO: Raw confidence: 0.9894801554996926
+2024-12-15 23:17:50,204 - INFO: Ensemble prediction: 3894.2280019136315
+2024-12-15 23:17:50,204 - INFO: ML Signal: {'predicted_price': 3894.2280019136315, 'price_change_pct': -0.5724789829667855, 'confidence': 0.9894801554996926, 'signal': 'SELL', 'strength': 5}
+2024-12-15 23:17:52,251 - INFO: Fetching data for symbol: SOL/USDT
+2024-12-15 23:17:52,993 - INFO: Successfully fetched data for SOL/USDT
+2024-12-15 23:17:53,004 - INFO: 
+Generating trade setup for SOL/USDT
+2024-12-15 23:17:53,009 - INFO: Current price: 221.86
+2024-12-15 23:17:53,259 - INFO: LSTM prediction: 225.5976593196392
+2024-12-15 23:17:53,259 - INFO: RF prediction: 220.2026032107727
+2024-12-15 23:17:53,259 - INFO: Raw confidence: 0.9757960837517522
+2024-12-15 23:17:53,259 - INFO: Ensemble prediction: 222.90013126520597
+2024-12-15 23:17:53,259 - INFO: ML Signal: {'predicted_price': 222.90013126520597, 'price_change_pct': 0.4688232512422056, 'confidence': 0.9757960837517522, 'signal': 'BUY', 'strength': 5}
+2024-12-15 23:17:56,835 - INFO: Fetching data for symbol: BTC/USDT
+2024-12-15 23:17:57,585 - INFO: Successfully fetched data for BTC/USDT
+2024-12-15 23:17:57,585 - INFO: 
+Generating trade setup for BTC/USDT
+2024-12-15 23:17:57,585 - INFO: Current price: 103305.0
+2024-12-15 23:17:57,679 - INFO: LSTM prediction: 99970.62321400642
+2024-12-15 23:17:57,679 - INFO: RF prediction: 103392.7454457812
+2024-12-15 23:17:57,679 - INFO: Raw confidence: 0.9663447527022456
+2024-12-15 23:17:57,679 - INFO: Ensemble prediction: 101681.68432989382
+2024-12-15 23:17:57,679 - INFO: ML Signal: {'predicted_price': 101681.68432989382, 'price_change_pct': -1.5713815111622687, 'confidence': 0.9663447527022456, 'signal': 'SELL', 'strength': 5}
+2024-12-15 23:18:00,667 - INFO: Fetching data for symbol: BTC/USDT
+2024-12-15 23:18:01,374 - INFO: Successfully fetched data for BTC/USDT
+2024-12-15 23:18:01,384 - INFO: 
+Generating trade setup for BTC/USDT
+2024-12-15 23:18:01,384 - INFO: Current price: 103305.0
+2024-12-15 23:18:01,469 - INFO: LSTM prediction: 100556.92685833573
+2024-12-15 23:18:01,469 - INFO: RF prediction: 103703.98234170351
+2024-12-15 23:18:01,470 - INFO: Raw confidence: 0.9691859250436826
+2024-12-15 23:18:01,470 - INFO: Ensemble prediction: 102130.45460001961
+2024-12-15 23:18:01,470 - INFO: ML Signal: {'predicted_price': 102130.45460001961, 'price_change_pct': -1.1369685881422842, 'confidence': 0.9691859250436826, 'signal': 'SELL', 'strength': 5}
+2024-12-15 23:18:03,884 - INFO: Fetching data for symbol: BTC/USDT
+2024-12-15 23:18:04,086 - INFO: Successfully fetched data for BTC/USDT
+2024-12-15 23:18:04,093 - INFO: 
+Generating trade setup for BTC/USDT
+2024-12-15 23:18:04,093 - INFO: Current price: 103305.0
+2024-12-15 23:18:04,179 - INFO: LSTM prediction: 100607.264552176
+2024-12-15 23:18:04,179 - INFO: RF prediction: 103693.51020656517
+2024-12-15 23:18:04,179 - INFO: Raw confidence: 0.969787234942856
+2024-12-15 23:18:04,179 - INFO: Ensemble prediction: 102150.38737937059
+2024-12-15 23:18:04,179 - INFO: ML Signal: {'predicted_price': 102150.38737937059, 'price_change_pct': -1.117673511087957, 'confidence': 0.969787234942856, 'signal': 'SELL', 'strength': 5}
+2024-12-15 23:18:06,139 - INFO: Fetching data for symbol: BTC/USDT
+2024-12-15 23:18:06,894 - INFO: Successfully fetched data for BTC/USDT
+2024-12-15 23:18:06,904 - INFO: 
+Generating trade setup for BTC/USDT
+2024-12-15 23:18:06,904 - INFO: Current price: 103243.5
+2024-12-15 23:18:06,986 - INFO: LSTM prediction: 101245.29436534643
+2024-12-15 23:18:06,986 - INFO: RF prediction: 104018.2517698461
+2024-12-15 23:18:06,986 - INFO: Raw confidence: 0.972981491777665
+2024-12-15 23:18:06,986 - INFO: Ensemble prediction: 102631.77306759627
+2024-12-15 23:18:06,986 - INFO: ML Signal: {'predicted_price': 102631.77306759627, 'price_change_pct': -0.5925089060364414, 'confidence': 0.972981491777665, 'signal': 'SELL', 'strength': 5}
+2024-12-15 23:18:09,243 - INFO: Fetching data for symbol: BTC/USDT
+2024-12-15 23:18:09,964 - INFO: Successfully fetched data for BTC/USDT
+2024-12-15 23:18:09,974 - INFO: 
+Generating trade setup for BTC/USDT
+2024-12-15 23:18:09,974 - INFO: Current price: 103305.0
+2024-12-15 23:18:10,059 - INFO: LSTM prediction: 99970.62321400642
+2024-12-15 23:18:10,059 - INFO: RF prediction: 103392.7454457812
+2024-12-15 23:18:10,059 - INFO: Raw confidence: 0.9663447527022456
+2024-12-15 23:18:10,059 - INFO: Ensemble prediction: 101681.68432989382
+2024-12-15 23:18:10,059 - INFO: ML Signal: {'predicted_price': 101681.68432989382, 'price_change_pct': -1.5713815111622687, 'confidence': 0.9663447527022456, 'signal': 'SELL', 'strength': 5}
