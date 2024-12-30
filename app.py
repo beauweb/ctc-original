@@ -336,5 +336,5 @@ def market_data():
         return jsonify({'error': 'Failed to fetch market data'}), 500
 
 if __name__ == '__main__':
-    # Run Flask without debug mode to avoid reloader thread issues
-    app.run(host='127.0.0.1', port=5000)
+    # Run Flask on port 5001 to avoid conflicts with other services
+    app.run(host='127.0.0.1', port=5001)
