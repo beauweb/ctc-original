@@ -337,4 +337,4 @@ def market_data():
 
 if __name__ == '__main__':
     # Run Flask on port 5001 to avoid conflicts with other services
-    app.run(host='127.0.0.1', port=5001)
+    app.run(host='beaucoin.streamlit.app', port=5001)
