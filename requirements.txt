@@ -7,8 +7,8 @@ python-dotenv==1.0.0
 websocket-client==1.6.3
 ta==0.10.2
 plotly==5.16.1
-dash==2.9.3
-scikit-learn>=1.3.2
+dash==2.2.3
+scikit-learn==1.5.2
 tensorflow-cpu==2.17.1
 ccxt==4.1.94
 gunicorn==21.2.0
